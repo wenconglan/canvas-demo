@@ -22,9 +22,16 @@ eraser.onclick = function(){
   pen.classList.remove('active')
 }
 //颜色切换
-
+black.onclick = function(){
+  context.strokeStyle = 'black'
+  black.classList.add('active')
+  red.classList.remove('active')
+  green.classList.remove('active')
+  blue.classList.remove('active')
+}
 red.onclick = function(){
   context.strokeStyle = 'red'
+  black.classList.remove('active')
   red.classList.add('active')
   green.classList.remove('active')
   blue.classList.remove('active')
@@ -34,19 +41,25 @@ green.onclick = function(){
   red.classList.remove('active')
   green.classList.add('active')
   blue.classList.remove('active')
+  black.classList.remove('active')
 }
 blue.onclick = function(){
   context.strokeStyle = 'blue'
   red.classList.remove('active')
   green.classList.remove('active')
   blue.classList.add('active')
+  black.classList.remove('active')
 }
 //粗细调整
 thin.onclick = function(){
   lineWidth = 5
+  thin.classList.add('active')
+  thick.classList.remove('active')
 }
 thick.onclick = function(){
   lineWidth = 10;
+  thin.classList.remove('active')
+  thick.classList.add('active')
 }
 //清空画布
 clear.onclick = function(){
@@ -133,7 +146,7 @@ function listenToUser(canvas) {
       var x = a.clientX,y = a.clientY
       using = true
       if (eraserEnabled) {
-        context.clearRect(x - 5, y - 5, 10, 10)
+        context.clearRect(x - 10, y - 10, 20, 20)
       } else {
         lastPoint = { x: x, y: y }
       }
@@ -142,7 +155,7 @@ function listenToUser(canvas) {
       var x = a.clientX,y = a.clientY
       if (!using) {return}
       if (eraserEnabled) {
-        context.clearRect(x - 5, y - 5, 10, 10)
+        context.clearRect(x - 10, y - 10, 20, 20)
       } else {
         var newPoint = { x: x, y: y }
         drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)

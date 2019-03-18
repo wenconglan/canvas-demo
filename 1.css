@@ -46,6 +46,9 @@ body{
   margin: 10px 0;
   transition: all 0.3s;
 }
+.colors > li.black{
+  background: black;
+}
 .colors > li.red{
   background: red;
 }
@@ -61,11 +64,12 @@ body{
 }
 .sizes {
   position: fixed;
-  right: 20px;
-  top: 10px;
+  top: 215px;
+  left: 26px;
 }
 .sizes > li{
   margin: 20px 0;
+  transition: all 0.3s;
 }
 .sizes > .thin{
   height: 0;
@@ -76,4 +80,7 @@ body{
   height: 0;
   width: 20px;
   border-top: 6px solid black;
+}
+.sizes li.active{
+  transform:scale(1.2);
 }
